@@ -1,3 +1,4 @@
+
 # 🏛️ Configuring On-Premises Active Directory within Azure Virtual Machines
 
 ## 🎯 Objective
@@ -59,3 +60,43 @@ $OUPath = "OU=_USERS,OU=_EMPLOYEES,DC=mydomain,DC=local"
                -Enabled $true `
                -ChangePasswordAtLogon $false
 }
+
+```
+
+---
+
+### Step 4: Domain Join & Client Verification
+
+1. Logged into `Client-01` using local admin credentials.
+2. Verified DNS resolution using Command Prompt:
+```cmd
+nslookup mydomain.com
+
+```
+
+
+3. Joined `Client-01` to `mydomain.com` via **System Properties $\rightarrow$ Computer Name**.
+4. Restarted `Client-01` and authenticated using domain credentials (`mydomain\testuser_1`).
+
+---
+
+## ✅ Verification & Results
+
+* Successfully resolved `mydomain.com` from `Client-01` following custom DNS assignment.
+* Confirmed domain join status using `whoami` on `Client-01`:
+```cmd
+whoami
+# Output: mydomain\testuser_1
+
+```
+
+
+* Verified user object placement and Active Directory event logs on `DC-01`.
+
+---
+
+## 📌 Key Takeaways
+
+* **DNS Resolution:** Custom VNet DNS settings are essential in Azure when running self-hosted Domain Controllers.
+* **Access Control:** Centralized user management simplifies access rights across enterprise endpoints.
+* **Automation:** PowerShell streamlines bulk user provisioning and administrative tasks in AD environments.
