@@ -27,6 +27,8 @@ This project demonstrates the deployment and configuration of an on-premises Act
 3. Provisioned `Client-01` (Windows 10) on the same subnet.
 4. Set `VNet-AD-Project` Custom DNS to point directly to `DC-01` (`10.0.0.4`) to enable domain lookup for client machines.
 
+![Azure VNet Custom DNS and Static IP Settings](./screenshots/01-vnet-ip-config.png)
+
 ---
 
 ### Step 2: Active Directory Installation & Domain Promotion
@@ -34,6 +36,8 @@ This project demonstrates the deployment and configuration of an on-premises Act
 2. Installed **Active Directory Domain Services (AD DS)** via Server Manager.
 3. Promoted `DC-01` to a Domain Controller for a new forest named `mydomain.com`.
 4. Configured DSRM password and rebooted the server to finalize promotion.
+
+![Active Directory Domain Services Installation](./screenshots/02-ad-ds-installation.png)
 
 ---
 
@@ -43,6 +47,9 @@ This project demonstrates the deployment and configuration of an on-premises Act
    * `_EMPLOYEES`
      * `_ADMINS`
      * `_USERS`
+
+![Active Directory Organizational Unit Structure](./screenshots/03-ou-structure.png)
+
 3. Executed PowerShell script to generate sample accounts for testing domain authentication:
 
 ```powershell
@@ -100,3 +107,4 @@ whoami
 * **DNS Resolution:** Custom VNet DNS settings are essential in Azure when running self-hosted Domain Controllers.
 * **Access Control:** Centralized user management simplifies access rights across enterprise endpoints.
 * **Automation:** PowerShell streamlines bulk user provisioning and administrative tasks in AD environments.
+
