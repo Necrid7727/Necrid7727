@@ -82,6 +82,7 @@ EXIT;
 
 ```
 
+<img width="2752" height="1536" alt="Gemini_Generated_Image_bvzbqxbvzbqxbvzb" src="https://github.com/user-attachments/assets/f182491f-ebe9-42ad-aece-4d9d2e56a320" />
 
 
 ---
