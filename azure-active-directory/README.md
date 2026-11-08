@@ -27,7 +27,8 @@ This project demonstrates the deployment and configuration of an on-premises Act
 3. Provisioned `Client-01` (Windows 10) on the same subnet.
 4. Set `VNet-AD-Project` Custom DNS to point directly to `DC-01` (`10.0.0.4`) to enable domain lookup for client machines.
 
-![Azure VNet Custom DNS and Static IP Settings](./screenshots/01-vnet-ip-config.png)
+Azure VNet Custom DNS and Static IP Settings<img width="2752" height="1536" alt="Gemini_Generated_Image_vnzb1evnzb1evnzb" src="https://github.com/user-attachments/assets/b283a892-1be7-46fe-ae11-c7fcb9a61344" />
+
 
 ---
 
