@@ -42,9 +42,8 @@ This project is an operational walkthrough demonstrating the complete lifecycle 
 2. Click **Tickets** $\rightarrow$ Click **Unassigned** $\rightarrow$ Click Ticket `#100492`.
 3. In the right pane, click **Claim** to assign the ticket to `Jane Doe`.
 
-<p align="center">
-  <img src="./screenshots/02-ticket-claim-assignment.png" alt="Agent Claiming and Assigning Ticket" width="700" />
-</p>
+<img width="2752" height="1536" alt="Gemini_Generated_Image_pp1dhpp1dhpp1dhp" src="https://github.com/user-attachments/assets/955f8b05-d2e3-46c6-9c33-b87c59b33031" />
+
 
 4. Open Active Directory on `DC-01`, locate user `alice.johnson`, right-click $\rightarrow$ **Reset Password**, and uncheck "Account is Locked Out".
 5. Return to osTicket, select **Post Reply**, and enter response:
