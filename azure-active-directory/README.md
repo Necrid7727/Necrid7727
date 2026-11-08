@@ -38,7 +38,8 @@ Azure VNet Custom DNS and Static IP Settings<img width="2752" height="1536" alt=
 3. Promoted `DC-01` to a Domain Controller for a new forest named `mydomain.com`.
 4. Configured DSRM password and rebooted the server to finalize promotion.
 
-![Active Directory Domain Services Installation](./screenshots/02-ad-ds-installation.png)
+Active Directory Domain Services Installation<img width="2752" height="1536" alt="Gemini_Generated_Image_192iv4192iv4192i" src="https://github.com/user-attachments/assets/cfaf339b-ab63-431f-b70b-9a5909bb3a7f" />
+
 
 ---
 
