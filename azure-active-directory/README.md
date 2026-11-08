@@ -50,7 +50,8 @@ Active Directory Domain Services Installation<img width="2752" height="1536" alt
      * `_ADMINS`
      * `_USERS`
 
-![Active Directory Organizational Unit Structure](./screenshots/03-ou-structure.png)
+Active Directory Organizational Unit Structure<img width="2752" height="1536" alt="Gemini_Generated_Image_5xaeq25xaeq25xae" src="https://github.com/user-attachments/assets/fd26071c-e218-421c-ad2c-405befa55048" />
+
 
 3. Executed PowerShell script to generate sample accounts for testing domain authentication:
 
