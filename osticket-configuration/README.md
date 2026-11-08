@@ -48,9 +48,7 @@ This project is a detailed technical walkthrough covering the baseline environme
    * **Name:** `PHP_via_FastCGI`
 5. Click **OK**, then click **Yes** when prompted to allow FastCGI permissions.
 
-<p align="center">
-  <img src="./screenshots/01-iis-fastcgi-mapping.png" alt="IIS FastCGI Handler Mapping for PHP" width="700" />
-</p>
+<img width="2752" height="1536" alt="Gemini_Generated_Image_wqn0y9wqn0y9wqn0" src="https://github.com/user-attachments/assets/373f2dfa-8075-4a78-ae54-e79fe9965d34" />
 
 6. Open `C:\php` in File Explorer, copy `php.ini-production`, and rename it to `php.ini`.
 7. Open `php.ini` in Notepad as Administrator. Locate the `Dynamic Extensions` section, remove the leading semicolon `;` from the following lines to enable required modules, and save the file:
