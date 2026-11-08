@@ -1,43 +1,59 @@
+# ⚙️ osTicket: Prerequisites and Installation Walkthrough
 
-# ⚙️ osTicket: Prerequisites and Installation
+## 📝 Project Summary
 
-## 🎯 Objective
-This project covers the baseline environment configuration and installation of **osTicket**, an open-source IT Service Management (ITSM) ticketing system. The objective was to set up a web server (IIS), database (MySQL), and PHP environment on a Windows virtual machine and successfully initialize the osTicket web application.
+### Description
+This project is a detailed technical walkthrough covering the baseline environment configuration and installation of **osTicket**, an open-source IT Service Management (ITSM) ticketing system. It details the step-by-step setup of Internet Information Services (IIS), PHP extension mapping, MySQL database creation, and web application initialization on a Windows environment.
 
----
+### Languages Used
+* **PowerShell / Batch:** Command execution and environment setup.
+* **SQL:** Database initialization and user privilege allocation.
+* **PHP:** Scripting engine configuration (`php.ini`).
 
-## 📐 Environment & Prerequisites
+### Environments Used
+* **Windows 10 / Windows Server 2022** (Virtual Machine)
+* **Internet Information Services (IIS 10.0)**
 
-| Component | Software / Details |
-| :--- | :--- |
-| **Operating System** | Windows 10 / Windows Server 2022 VM |
-| **Web Server** | Internet Information Services (IIS) |
-| **Database** | MySQL Server / MariaDB |
-| **Scripting Engine** | PHP (v8.x) |
-| **Application** | osTicket (v1.17+ core files) |
-
----
-
-## 🛠️ Step-by-Step Implementation Guide
-
-### Step 1: Web Server & IIS Configuration
-1. Open **Control Panel** $\rightarrow$ **Programs and Features** $\rightarrow$ **Turn Windows features on or off**.
-2. Enable **Internet Information Services (IIS)** along with the following features:
-   * World Wide Web Services $\rightarrow$ Application Development Features $\rightarrow$ **CGI**.
-   * Web Management Tools $\rightarrow$ **IIS Management Console**.
-3. Install the **PHP Manager for IIS** and the **URL Rewrite Module**.
+### Technologies & Applications Used
+* **osTicket** (v1.17+ Core Files)
+* **MySQL Server** (v8.0)
+* **PHP** (v8.x Non-Thread-Safe)
+* **PHP Manager for IIS**
+* **URL Rewrite Module for IIS**
 
 ---
 
-### Step 2: PHP Setup & Extension Mapping
-1. Download and extract the non-thread-safe version of **PHP** into `C:\php`.
-2. Open IIS Manager, select the server root, and open **Handler Mappings**.
-3. Add a Module Mapping for PHP:
-   * **Executable Path:** `C:\php\php-cgi.exe`
-   * **Extension:** `*.php`
+## 🛠️ Step-by-Step Written Demonstration
+
+### Step 1: Web Server (IIS) & Feature Activation
+1. On the Windows host machine, click **Start**, search for **Control Panel**, and press `Enter`.
+2. Navigate to **Programs** $\rightarrow$ Click **Turn Windows features on or off**.
+3. In the Windows Features wizard, scroll down to **Internet Information Services** and expand the selection.
+4. Check **World Wide Web Services** $\rightarrow$ Expand **Application Development Features** $\rightarrow$ Select **CGI**.
+5. Expand **Web Management Tools** $\rightarrow$ Check **IIS Management Console**.
+6. Click **OK** and wait for Windows to apply changes.
+7. Download and install **PHP Manager for IIS** and the **URL Rewrite Module** using default installation prompts.
+8. **Expected Result:** Opening IIS Manager (`inetmgr`) reveals the server homepage with CGI capabilities enabled.
+
+---
+
+### Step 2: PHP Setup & FastCGI Handler Mapping
+1. Download the latest non-thread-safe PHP zip archive and extract contents to `C:\php`.
+2. Open **IIS Manager** (`inetmgr`), click on the root Server node in the left Connections pane, and double-click **Handler Mappings** in the center feature panel.
+3. Click **Add Module Mapping...** in the right-hand Actions menu.
+4. Enter the following parameters:
+   * **Request path:** `*.php`
+   * **Module:** `FastCgiModule`
+   * **Executable:** `C:\php\php-cgi.exe`
    * **Name:** `PHP_via_FastCGI`
-4. Rename `C:\php\php.ini-production` to `php.ini`.
-5. Open `php.ini` in a text editor and enable required extensions by removing the semicolon `;`:
+5. Click **OK**, then click **Yes** when prompted to allow FastCGI permissions.
+
+<p align="center">
+  <img src="./screenshots/01-iis-fastcgi-mapping.png" alt="IIS FastCGI Handler Mapping for PHP" width="700" />
+</p>
+
+6. Open `C:\php` in File Explorer, copy `php.ini-production`, and rename it to `php.ini`.
+7. Open `php.ini` in Notepad as Administrator. Locate the `Dynamic Extensions` section, remove the leading semicolon `;` from the following lines to enable required modules, and save the file:
    ```ini
    extension=php_mysqli.dll
    extension=php_mbstring.dll
@@ -45,8 +61,6 @@ This project covers the baseline environment configuration and installation of *
    extension=php_intl.dll
    extension=php_gd.dll
    extension=php_imap.dll
-
-```
 
 ---
 
