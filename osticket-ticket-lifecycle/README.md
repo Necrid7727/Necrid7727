@@ -32,9 +32,8 @@ This project is an operational walkthrough demonstrating the complete lifecycle 
    * **Issue Summary:** `Domain account locked out after returning from leave`
 4. Click **Create Ticket**.
 
-<p align="center">
-  <img src="./screenshots/01-ticket-submission.png" alt="User Portal Ticket Submission Form" width="700" />
-</p>
+<img width="2752" height="1536" alt="Gemini_Generated_Image_3qyzqn3qyzqn3qyz" src="https://github.com/user-attachments/assets/be43b20e-e776-4fb3-a3d7-13e5655c7645" />
+
 
 5. **Expected Result:** Ticket `#100492` is generated and assigned to **Tier 1 Helpdesk** under **Standard SLA**.
 
