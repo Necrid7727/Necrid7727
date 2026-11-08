@@ -69,9 +69,8 @@ This project is an operational walkthrough demonstrating the complete lifecycle 
 3. In the Ticket Actions toolbar, click **Transfer**.
 4. Select New Department: `System Administrators`. Enter Transfer Reason: `Physical hardware troubleshooting required`. Click **Transfer**.
 
-<p align="center">
-  <img src="./screenshots/03-internal-note-transfer.png" alt="Internal Note and Department Transfer" width="700" />
-</p>
+<img width="2752" height="1536" alt="Gemini_Generated_Image_msv5etmsv5etmsv5" src="https://github.com/user-attachments/assets/3ff87ae3-6b03-48cf-843e-6a08e2645dd2" />
+
 
 5. Log out of `/scp` and log in as Lead Admin `John Smith` (`jsmith`).
 6. Open Ticket `#100493` under `System Administrators` queue.
