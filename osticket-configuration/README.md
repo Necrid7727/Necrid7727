@@ -95,16 +95,19 @@ EXIT;
 4. Adjust NTFS permissions on `ost-config.php` to allow IIS (`IUSR`) write permissions during setup.
 5. Open a web browser on the server and navigate to `http://localhost/osticket/setup/`.
 6. Verify all system prerequisite checks (PHP extensions, web server) pass green.
+
+<img width="2752" height="1536" alt="Gemini_Generated_Image_se6u5pse6u5pse6u" src="https://github.com/user-attachments/assets/f719a035-1b9a-45d0-ac7d-c9debc264131" />
+ 
 7. Fill in the installer form:
-* **System Settings:** Site Name, Default Email address.
-* **Admin User:** System Administrator credentials.
-* **Database Settings:** Database (`osticket_db`), Username (`osticket_user`), Password (`Password2026!`), Host (`localhost`).
+      * **System Settings:** Site Name, Default Email address.
+      * **Admin User:** System Administrator credentials.
+      * **Database Settings:** Database (`osticket_db`), Username (`osticket_user`), Password (`Password2026!`), Host (`localhost`).
 
 
 8. Click **Install Now** to populate the database tables and finalize installation.
 9. Post-Installation Cleanup:
-* Delete the `C:\inetpub\wwwroot\osticket\setup/` directory.
-* Change `ost-config.php` permissions back to read-only.
+    * Delete the `C:\inetpub\wwwroot\osticket\setup/` directory.
+    * Change `ost-config.php` permissions back to read-only.
 
 
 
