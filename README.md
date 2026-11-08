@@ -1,4 +1,4 @@
-# Hi, I'm Brian! 👋
+# Hi, I'm <a href="https://linkedin.com/in/brian-russell-297828442">Brian</a>👋</h1>
 **Information Technology Professional**
 
 Welcome to my IT Project Portfolio. This repository showcases hands-on experience in cloud infrastructure, identity and access management, network security, and helpdesk operations using enterprise tools like **Microsoft Azure** and **osTicket**.
