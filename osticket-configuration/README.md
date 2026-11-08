@@ -105,6 +105,9 @@ EXIT;
 
 
 8. Click **Install Now** to populate the database tables and finalize installation.
+
+<img width="2752" height="1536" alt="Gemini_Generated_Image_7nivaa7nivaa7niv" src="https://github.com/user-attachments/assets/6cdcded3-b503-4456-b129-d27ba344297e" />
+
 9. Post-Installation Cleanup:
     * Delete the `C:\inetpub\wwwroot\osticket\setup/` directory.
     * Change `ost-config.php` permissions back to read-only.
