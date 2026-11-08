@@ -72,6 +72,7 @@ $OUPath = "OU=_USERS,OU=_EMPLOYEES,DC=mydomain,DC=local"
 }
 
 ```
+<img width="2752" height="1536" alt="Gemini_Generated_Image_gmq4m6gmq4m6gmq4" src="https://github.com/user-attachments/assets/8c7442f0-624a-4911-9774-55ff18ccc33e" />
 
 ---
 
