@@ -1,68 +1,91 @@
-# 🎫 osTicket: Ticket Lifecycle Examples
+# 🎫 osTicket: Ticket Lifecycle & Workflow Implementation
 
-## 🎯 Objective
-This project demonstrates the end-to-end lifecycle management of IT support tickets inside osTicket. It covers ticket creation, SLA monitoring, agent assignment, escalation paths, internal notes, customer communications, and resolution closure.
+## 📝 Project Summary
+
+### Description
+This project is an operational walkthrough demonstrating the complete lifecycle management of IT support tickets inside osTicket. It covers ticket creation via client portal, SLA calculation, ticket assignment, department escalation via internal communications, customer status updates, and formal ticket closure.
+
+### Languages Used
+* **Markdown:** Documentation and scenario formatting.
+
+### Environments Used
+* **Windows 10 / Windows Server 2022** (Virtual Machine)
+* **osTicket Staff Portal (`/scp`) & Customer Portal**
+
+### Technologies & Applications Used
+* **osTicket ITSM Workflow Engine**
+* **Active Directory Users and Computers** (for backend simulation)
 
 ---
 
-## 🛠️ Step-by-Step Implementation Guide
+## 🛠️ Step-by-Step Written Demonstration
 
-### Scenario 1: Password Reset Request (Standard Tier 1 Ticket)
+### Scenario 1: Account Lockout (Standard Tier 1 Ticket)
 
-#### 1. Ticket Creation (User Portal)
-* **Customer:** `Alice Johnson` (`alice@example.com`)
-* **Help Topic:** `Account Access / Password Reset`
-* **Issue Summary:** User is locked out of active directory account after returning from leave.
-* **Result:** System automatically assigns Ticket ID `#100492` to **Tier 1 Helpdesk** with **Standard SLA**.
+#### 1. End-User Ticket Creation
+1. Open web browser and navigate to public portal `http://localhost/osticket/`.
+2. Click **Open a New Ticket**.
+3. Fill in ticket details:
+   * **Email Address:** `alice.johnson@example.com`
+   * **Full Name:** `Alice Johnson`
+   * **Help Topic:** `Account Access / Password Reset`
+   * **Issue Summary:** `Domain account locked out after returning from leave`
+4. Click **Create Ticket**.
+
+<p align="center">
+  <img src="./screenshots/01-ticket-submission.png" alt="User Portal Ticket Submission Form" width="700" />
+</p>
+
+5. **Expected Result:** Ticket `#100492` is generated and assigned to **Tier 1 Helpdesk** under **Standard SLA**.
 
 #### 2. Agent Processing & Resolution
-1. Agent `Jane Doe` logs into the Staff Panel (`/scp`).
-2. Claims ownership of Ticket `#100492` by clicking **Claim**.
-3. Reviews ticket details and performs password reset inside Active Directory Domain Services.
-4. Posts a **Reply** to the customer inside osTicket:
-   > *"Hello Alice, your password has been reset. Please use the temporary credentials sent to your manager to complete domain login."*
-5. Sets ticket status to **Closed**.
+1. Log into `/scp` as Agent `Jane Doe` (`jdoe`).
+2. Click **Tickets** $\rightarrow$ Click **Unassigned** $\rightarrow$ Click Ticket `#100492`.
+3. In the right pane, click **Claim** to assign the ticket to `Jane Doe`.
+
+<p align="center">
+  <img src="./screenshots/02-ticket-claim-assignment.png" alt="Agent Claiming and Assigning Ticket" width="700" />
+</p>
+
+4. Open Active Directory on `DC-01`, locate user `alice.johnson`, right-click $\rightarrow$ **Reset Password**, and uncheck "Account is Locked Out".
+5. Return to osTicket, select **Post Reply**, and enter response:
+   > *"Hello Alice, your Active Directory account has been unlocked and your password reset. Please test logging in at your workstation."*
+6. Set Ticket Status dropdown to **Closed**, then click **Post Reply**.
+7. **Expected Result:** Ticket moves to Closed status; customer receives automated resolution email.
 
 ---
 
-### Scenario 2: Network Switch Outage (Emergency Escalation Ticket)
+### Scenario 2: Network Outage (Emergency Escalation Ticket)
 
-#### 1. Ticket Creation & Auto-Routing
-* **Customer:** `Bob Smith` (Operations Manager)
-* **Help Topic:** `Network Connectivity`
-* **Priority:** Emergency
-* **Issue Summary:** Entire 3rd-floor office lost connectivity to server share and internet.
-* **Result:** Ticket `#100493` assigned automatically to **Networking** department with **Emergency SLA (1-hour response window)**.
+#### 1. Ticket Submission & Auto-Routing
+1. Navigate to `http://localhost/osticket/` $\rightarrow$ Click **Open a New Ticket**.
+2. Enter User details: `Bob Smith` (`bob.smith@example.com`).
+3. Select Help Topic: `Network Connectivity`.
+4. Enter Issue Summary: `Entire 3rd floor switch down - no internet or server access`. Click **Create Ticket**.
+5. **Expected Result:** Ticket `#100493` is generated and automatically routed to **Networking** under **Emergency SLA (1-hour grace period)**.
 
-#### 2. Department Escalation & Collaboration
-1. Tier 1 Agent opens Ticket `#100493` and posts an **Internal Note** to transfer ownership:
-   > *"Preliminary check completed; 3rd floor switch unresponsive. Transferring ticket to System Administrators."*
-2. Reassigns ticket department to `System Administrators`.
-3. Lead Administrator `John Smith` takes assignment of the ticket.
-4. Posts an internal update after replacing the core switch power supply.
-5. Sends customer reply verifying service restoration:
-   > *"The core switch power unit on Floor 3 has been replaced. Connectivity across all endpoints has been verified."*
-6. Updates ticket status to **Resolved** $\rightarrow$ **Closed**.
+#### 2. Triage & Department Escalation
+1. Log into `/scp` as Agent `Jane Doe`. Open Ticket `#100493`.
+2. Click **Post Internal Note**. Type message:
+   > *"Preliminary check completed; 3rd floor switch unresponsive to ping. Escalating to System Administrators for physical inspection."* Click **Post Note**.
+3. In the Ticket Actions toolbar, click **Transfer**.
+4. Select New Department: `System Administrators`. Enter Transfer Reason: `Physical hardware troubleshooting required`. Click **Transfer**.
 
----
+<p align="center">
+  <img src="./screenshots/03-internal-note-transfer.png" alt="Internal Note and Department Transfer" width="700" />
+</p>
 
-## 📊 Summary of Demonstrated Workflows
+5. Log out of `/scp` and log in as Lead Admin `John Smith` (`jsmith`).
+6. Open Ticket `#100493` under `System Administrators` queue.
+7. Click **Claim**, swap out failed switch power supply in datacenter, and post customer reply:
+   > *"The core switch power unit on Floor 3 has been replaced. Network connectivity and local server share access are fully restored."*
+8. Change Ticket Status to **Closed** and click **Post Reply**.
 
-| Stage | Action Taken inside osTicket | System Impact |
-| :--- | :--- | :--- |
-| **Creation** | User submits web form or emails helpdesk. | Ticket ID generated, Help Topic maps department & SLA. |
-| **Assignment** | Agent claims or supervisor assigns ticket. | Assignment notifications dispatched to assigned staff. |
-| **Communication** | Public replies vs. Internal Notes. | End-user receives updates; team notes remain hidden from public view. |
-| **Escalation** | Department re-assignment & priority adjustment. | Ticket reassigned to specialist groups under revised SLA timelines. |
-| **Resolution** | Solution documented and status updated. | Ticket logged into historical database for auditing and reporting. |
+<p align="center">
+  <img src="./screenshots/04-ticket-resolution-closed.png" alt="Ticket Closed with Audit Trail" width="700" />
+</p>
 
----
-
-## ✅ Verification & Results
-
-* Confirmed full thread auditing: All status changes, department transfers, and timestamps were correctly recorded in the ticket history log.
-* Verified customer email notifications fired automatically upon status changes.
-
+9. **Expected Result:** Complete activity timeline (notes, transfers, status updates, timestamps) is permanently recorded in ticket history log.
 ---
 
 ## 📌 Key Takeaways
