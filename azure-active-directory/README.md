@@ -89,6 +89,8 @@ nslookup mydomain.com
 3. Joined `Client-01` to `mydomain.com` via **System Properties $\rightarrow$ Computer Name**.
 4. Restarted `Client-01` and authenticated using domain credentials (`mydomain\testuser_1`).
 
+<img width="2752" height="1536" alt="Gemini_Generated_Image_e6rsbee6rsbee6rs" src="https://github.com/user-attachments/assets/749d406a-e75a-4a78-be61-c2c246e4b3ff" />
+
 ---
 
 ## ✅ Verification & Results
