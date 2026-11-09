@@ -78,9 +78,8 @@ This project is an operational walkthrough demonstrating the complete lifecycle 
    > *"The core switch power unit on Floor 3 has been replaced. Network connectivity and local server share access are fully restored."*
 8. Change Ticket Status to **Closed** and click **Post Reply**.
 
-<p align="center">
-  <img src="./screenshots/04-ticket-resolution-closed.png" alt="Ticket Closed with Audit Trail" width="700" />
-</p>
+<img width="2752" height="1536" alt="Gemini_Generated_Image_peygd9peygd9peyg" src="https://github.com/user-attachments/assets/afc56d7e-4e45-4d82-b5e6-36dff5a900f4" />
+
 
 9. **Expected Result:** Complete activity timeline (notes, transfers, status updates, timestamps) is permanently recorded in ticket history log.
 ---
